@@ -1,123 +1,30 @@
----
-layout: default
----
+### Abstract
+Voice  conversion  (VC)  is  a  task  that  transforms  the  source speaker’s timbre, accent, and tones in audio into another one’s while preserving the linguistic content.  It is still a challenging work, especially in one-shot setting.  Auto-encoder-based VCmethods disentangle the speaker and the content in input speechwithout given the speaker’s identity, so these methods can further generalize to unseen speakers.  The disentangle capabilityis achieved by vector quantization (VQ), adversarial training, or instance normalization (IN). However, the imperfect disentan-glement may harm the quality of output speech.  In this work, to further improve audio quality, we fuse skip-connection mod-ules  into  an  auto-encoder-based  VC  system.   We  find  that  to leverage skip-connection, strong information bottleneck is necessary.  The VQ-based method, which quantizes the latent vectors,  can serve the purpose.   The objective and the subjective evaluations  show  that  the  proposed  method  performs  well  in both audio naturalness and speaker similarity
+### DEMO ( Unseen Source and Target, both of them are random sampled, and converted by only one utterance)
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
-
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+| **Source** | **Target** | **Ours Converted** | **Chou** | **AutoVC** |
+| :--- | :--- | :--- | :--- | :--- |
+| <audio src="all/all/unseen/p330_p347_3/source.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p347_3/target.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p347_3/conversion.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p347_3/adain/converted.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p347_3/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/unseen/p347_p330_2/source.wav" controls preload></audio> | <audio src="all/all/unseen/p347_p330_2/target.wav" controls preload></audio> | <audio src="all/all/unseen/p347_p330_2/conversion.wav" controls preload></audio> |<audio src="all/all/unseen/p347_p330_2/adain/converted.wav" controls preload></audio> |<audio src="all/all/unseen/p347_p330_2/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/unseen/p330_p347_1/source.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p347_1/target.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p347_1/conversion.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p347_1/adain/converted.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p347_1/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/unseen/p330_p361_1/source.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p361_1/target.wav" controls preload></audio> | <audio src="all/all/unseen/p330_p361_1/conversion.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p361_1/adain/converted.wav" controls preload></audio> |<audio src="all/all/unseen/p330_p361_1/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/unseen/p347_p330_3/source.wav" controls preload></audio> | <audio src="all/all/unseen/p347_p330_3/target.wav" controls preload></audio> | <audio src="all/all/unseen/p347_p330_3/conversion.wav" controls preload></audio> |<audio src="all/all/unseen/p347_p330_3/adain/converted.wav" controls preload></audio> |<audio src="all/all/unseen/p347_p330_3/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
 
 
-### Definition lists can be used with HTML syntax.
+### DEMO ( Seen Source and Target, both of them are random sampled, and converted by only one utterance)
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+| **Source** | **Target** | **Ours Converted** | **Chou** | **AutoVC** |
+| :--- | :--- | :--- | :--- | :--- |
+| <audio src="all/all/seen/p280_p306_0/source.wav" controls preload></audio> | <audio src="all/all/seen/p280_p306_0/target.wav" controls preload></audio> | <audio src="all/all/seen/p280_p306_0/conversion.wav" controls preload></audio> |<audio src="all/all/seen/p280_p306_0/adain/converted.wav" controls preload></audio> |<audio src="all/all/seen/p280_p306_0/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/seen/p317_p318_0/source.wav" controls preload></audio> | <audio src="all/all/seen/p317_p318_0/target.wav" controls preload></audio> | <audio src="all/all/seen/p317_p318_0/conversion.wav" controls preload></audio> |<audio src="all/all/seen/p317_p318_0/adain/converted.wav" controls preload></audio> |<audio src="all/all/seen/p317_p318_0/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/seen/p276_p243_0/source.wav" controls preload></audio> | <audio src="all/all/seen/p276_p243_0/target.wav" controls preload></audio> | <audio src="all/all/seen/p276_p243_0/conversion.wav" controls preload></audio> |<audio src="all/all/seen/p276_p243_0/adain/converted.wav" controls preload></audio> |<audio src="all/all/seen/p276_p243_0/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
+| <audio src="all/all/seen/p275_p263_0/source.wav" controls preload></audio> | <audio src="all/all/seen/p275_p263_0/target.wav" controls preload></audio> | <audio src="all/all/seen/p275_p263_0/conversion.wav" controls preload></audio> |<audio src="all/all/seen/p275_p263_0/adain/converted.wav" controls preload></audio> |<audio src="all/all/seen/p275_p263_0/autovc/source.wav" controls preload></audio> |
+| --- | --- | --- | --- | --- |
